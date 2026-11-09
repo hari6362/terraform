@@ -8,14 +8,14 @@ resource "aws_instance" "roboshop" {
     ] # list
 
   tags = {
-    name = "${var.project}-${var.environment}-${var.instances[count.index]}"
+    name = "${var.project}-${var.environment}-${var.instances[count.index]}"    # interpolation - multiple variables
   }
 }
 
 
 
 # It creates in default VPC
-resource "aws_security_group" "roboshop" {
+resource "aws_security_group" "roboshop" {          # aws_security_group.roboshop[count.index].id (count.index is special variable)
   count = 4
   name        = "${var.project}-${var.environment}-${var.instances[count.index]}"
   description = "Allow TLS inbound traffic and all outbound traffic"
