@@ -6,7 +6,7 @@ resource "aws_instance" "demo-instance" {
   tags = {
     Name = "terraform Demo"
     project = "roboshop"
-    Environment = "Dev"  #dev
+    Environment = "Dev"  #dev -
   }
 
 }
